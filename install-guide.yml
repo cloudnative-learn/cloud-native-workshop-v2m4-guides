@@ -1,0 +1,20 @@
+- name: Create Guides Module 4
+  hosts: localhost
+  tasks:
+  - import_role:
+      name: siamaksade.openshift_workshopper
+    vars:
+      project_name: "cloud-native-workshop-guide-v2m4"
+      project_suffix: "-BK"
+      workshopper_content_url_prefix: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/cloud-native-workshop-v2m4-guides/master
+      workshopper_workshop_urls: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/cloud-native-workshop-v2m4-guides/master/_cloud-native-workshop-module4.yml
+      workshopper_env_vars:
+        PROJECT_SUFFIX: "-BK"
+        COOLSTORE_PROJECT: coolstore{{ project_suffix }}
+        OPENSHIFT_CONSOLE_URL: "https://c116-e.us-south.containers.cloud.ibm.com:32274"
+        ECLIPSE_CHE_URL: "http://che-labs-infra.mycluster-dal13-b-826774-4f0f212b5bb3f1b263650e398426a4ff-0000.us-south.containers.appdomain.cloud"
+        GIT_URL: "http://gogs-labs-infra.mycluster-dal13-b-826774-4f0f212b5bb3f1b263650e398426a4ff-0000.us-south.containers.appdomain.cloud"
+        NEXUS_URL: "http://nexus-labs-infra.mycluster-dal13-b-826774-4f0f212b5bb3f1b263650e398426a4ff-0000.us-south.containers.appdomain.cloud"
+        LABS_DOWNLOAD_URL: "http://gogs-labs-infra.mycluster-dal13-b-826774-4f0f212b5bb3f1b263650e398426a4ff-0000.us-south.containers.appdomain.cloud"
+         
+      openshift_cli: "oc --server https://c116-e.us-south.containers.cloud.ibm.com:32274"
