@@ -12,5 +12,13 @@ ansible-galaxy install siamaksade.openshift_workshopper
 ```
 
 ```
+oc login --token=<TOKEN> --server=https://c116-e.us-south.containers.cloud.ibm.com:32274
+oc new-project cloud-native-workshop-guide-v2m4  # optional - playbook creates this
 ansible-playbook ./install-guide.yml
 ```
+
+## Notes
+
+namespace=$(oc project -q)
+openshift_token=$(oc whoami -t)
+openshift_master_url=$(oc whoami --show-server)
